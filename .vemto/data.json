@@ -5,7 +5,7 @@
                 "uuid": "081e2352-a1d0-49ee-be40-bcbe3c2b75f3",
                 "id": 1,
                 "createdAt": "2025-07-17 22:01:56",
-                "updatedAt": "2025-07-17 22:46:14",
+                "updatedAt": "2025-07-17 23:01:58",
                 "settings": {
                     "cssFramework": "tailwind",
                     "uiStarterKit": "jetstream",
@@ -25,7 +25,7 @@
                     "schemaReaderDbDatabase": "vemto_schema_reader_lakiranje_automobila",
                     "laravelVersion": "12.0"
                 },
-                "canShowSchemaSourceChangesAlert": false,
+                "canShowSchemaSourceChangesAlert": true,
                 "codeGenerationSettings": {
                     "models": true,
                     "factories": true,
