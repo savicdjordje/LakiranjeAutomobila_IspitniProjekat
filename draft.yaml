@@ -1,0 +1,53 @@
+models:
+  User:
+    firstname: string
+    lastname: string
+    email: string unique
+    email_verified_at: timestamp nullable
+    password: string
+    phone_number: string
+    role: enum:client,admin,employee
+    remember_token: rememberToken
+    timestamps: true
+
+  Status:
+    name: string
+    timestamps: true
+
+  Vehicle:
+    client_id: id foreign:users
+    licence_plate: string
+    make: string
+    model: string
+    year: date
+    timestamps: true
+
+  Service:
+    vehicle_id: id foreign:vehicles
+    employee_id: id foreign:users
+    admin_id: id foreign:users
+    status_id: id foreign:statuses
+    name: string
+    description: text
+    timestamps: true
+
+  Bill:
+    service_id: id foreign:services
+    price: decimal
+    timestamps: true
+
+controllers:
+  User:
+    resource
+
+  Status:
+    resource
+
+  Vehicle:
+    resource
+
+  Service:
+    resource
+
+  Bill:
+    resource
