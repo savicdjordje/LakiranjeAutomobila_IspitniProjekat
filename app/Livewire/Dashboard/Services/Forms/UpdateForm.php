@@ -4,6 +4,7 @@ namespace App\Livewire\Dashboard\Services\Forms;
 
 use Livewire\Form;
 use App\Models\Service;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Validation\Rule;
 
 class UpdateForm extends Form
@@ -13,8 +14,6 @@ class UpdateForm extends Form
     public $vehicle_id = '';
 
     public $employee_id = '';
-
-    public $admin_id = '';
 
     public $status_id = '';
 
@@ -27,7 +26,6 @@ class UpdateForm extends Form
         return [
             'vehicle_id' => ['required'],
             'employee_id' => ['required'],
-            'admin_id' => ['required'],
             'status_id' => ['required'],
             'name' => ['required', 'string'],
             'description' => ['required', 'string'],
@@ -40,7 +38,6 @@ class UpdateForm extends Form
 
         $this->vehicle_id = $service->vehicle_id;
         $this->employee_id = $service->employee_id;
-        $this->admin_id = $service->admin_id;
         $this->status_id = $service->status_id;
         $this->name = $service->name;
         $this->description = $service->description;
@@ -50,14 +47,19 @@ class UpdateForm extends Form
     {
         $this->validate();
 
-        $this->service->update(
-            $this->except([
-                'service',
-                'vehicle_id',
-                'employee_id',
-                'admin_id',
-                'status_id',
-            ])
-        );
+        $data = $this->only([
+            'vehicle_id',
+            'employee_id',
+            'status_id',
+            'name',
+            'description',
+        ]);
+
+        if (empty($this->service->admin_id) && !empty($data['employee_id'])) {
+            $user = Auth::user();
+            $data['admin_id'] = $user->id;
+        }
+
+        $this->service->update($data);
     }
 }

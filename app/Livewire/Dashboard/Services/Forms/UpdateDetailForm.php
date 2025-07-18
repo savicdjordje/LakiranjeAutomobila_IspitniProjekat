@@ -12,8 +12,6 @@ class UpdateDetailForm extends Form
 
     public $employee_id = '';
 
-    public $admin_id = '';
-
     public $status_id = '';
 
     public $name = '';
@@ -24,7 +22,6 @@ class UpdateDetailForm extends Form
     {
         return [
             'employee_id' => ['required'],
-            'admin_id' => ['required'],
             'status_id' => ['required'],
             'name' => ['required', 'string'],
             'description' => ['required', 'string'],
@@ -34,9 +31,7 @@ class UpdateDetailForm extends Form
     public function setService(Service $service)
     {
         $this->service = $service;
-
         $this->employee_id = $service->employee_id;
-        $this->admin_id = $service->admin_id;
         $this->status_id = $service->status_id;
         $this->name = $service->name;
         $this->description = $service->description;
@@ -47,7 +42,7 @@ class UpdateDetailForm extends Form
         $this->validate();
 
         $this->service->update(
-            $this->except(['service', 'employee_id', 'admin_id', 'status_id'])
+            $this->except(['service', 'employee_id', 'status_id'])
         );
     }
 }

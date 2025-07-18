@@ -23,8 +23,6 @@ class VehicleServicesDetail extends Component
 
     public ?Service $service;
     public Vehicle $vehicle;
-
-    public Collection $admins;
     public Collection $employees;
     public Collection $statuses;
 
@@ -47,7 +45,6 @@ class VehicleServicesDetail extends Component
     {
         $this->form = new CreateDetailForm($this, 'form');
 
-        $this->admins = User::where('role', 'admin')->pluck('firstname', 'id');
         $this->employees = User::where('role', 'employee')->pluck('firstname', 'id');
         $this->statuses = Status::pluck('name', 'id');
     }

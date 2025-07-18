@@ -16,7 +16,6 @@ class ServiceEdit extends Component
 
     public UpdateForm $form;
     public Collection $vehicles;
-    public Collection $admins;
     public Collection $employees;
     public Collection $statuses;
 
@@ -28,7 +27,6 @@ class ServiceEdit extends Component
 
         $this->form->setService($service);
         $this->vehicles = Vehicle::pluck('licence_plate', 'id');
-        $this->admins = User::where('role', 'admin')->pluck('firstname', 'id');
         $this->employees = User::where('role', 'employee')->pluck('firstname', 'id');
         $this->statuses = Status::pluck('name', 'id');
     }

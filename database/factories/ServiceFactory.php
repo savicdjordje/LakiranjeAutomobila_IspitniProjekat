@@ -25,7 +25,7 @@ class ServiceFactory extends Factory
         return [
             'name' => fake()->name(),
             'description' => fake()->sentence(15),
-            'status_id' => \App\Models\Status::factory(),
+            'status_id' => \App\Models\Status::inRandomOrder()->first()->id,
             'admin_id' => \App\Models\User::factory(),
             'employee_id' => \App\Models\User::factory(),
             'vehicle_id' => \App\Models\Vehicle::factory(),

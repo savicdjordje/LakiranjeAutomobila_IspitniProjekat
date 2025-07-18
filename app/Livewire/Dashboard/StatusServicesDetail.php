@@ -25,7 +25,7 @@ class StatusServicesDetail extends Component
     public Status $status;
 
     public Collection $vehicles;
-    public Collection $admins;
+
     public Collection $employees;
 
     public $showingModal = false;
@@ -48,7 +48,6 @@ class StatusServicesDetail extends Component
         $this->form = new CreateDetailForm($this, 'form');
 
         $this->vehicles = Vehicle::pluck('licence_plate', 'id');
-        $this->admins = User::where('role', 'admin')->pluck('firstname', 'id');
         $this->employees = User::where('role', 'employee')->pluck('firstname', 'id');
     }
 

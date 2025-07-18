@@ -17,14 +17,12 @@ class ServiceCreate extends Component
 
     public CreateForm $form;
     public Collection $vehicles;
-    public Collection $admins;
     public Collection $employees;
     public Collection $statuses;
 
     public function mount()
     {
         $this->vehicles = Vehicle::pluck('licence_plate', 'id');
-        $this->admins = User::where('role', 'admin')->pluck('firstname', 'id');
         $this->employees = User::where('role', 'employee')->pluck('firstname', 'id');
         $this->statuses = Status::pluck('name', 'id');
     }

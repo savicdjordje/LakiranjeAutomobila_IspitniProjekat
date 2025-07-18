@@ -19,7 +19,7 @@ Route::prefix('/dashboard')
         'auth:sanctum',
         config('jetstream.auth_session'),
         'verified',
-        \App\Http\Middleware\CheckRole::class . ':admin:employee'
+        \App\Http\Middleware\CheckRole::class . ':admin'
     ])
     ->group(function () {
         Route::get('/users', App\Livewire\Dashboard\UserIndex::class)->name(

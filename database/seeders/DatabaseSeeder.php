@@ -20,6 +20,7 @@ class DatabaseSeeder extends Seeder
             ->create([
                 'email' => 'admin@admin.com',
                 'password' => Hash::make('admin'),
+                'role' => 'admin',
             ]);
 
         $this->call(StatusSeeder::class);

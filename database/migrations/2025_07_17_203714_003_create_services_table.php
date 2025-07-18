@@ -17,9 +17,9 @@ return new class extends Migration {
 
             $table->foreignId('vehicle_id');
 
-            $table->foreignId('employee_id');
+            $table->foreignId('employee_id')->nullable();
 
-            $table->foreignId('admin_id');
+            $table->foreignId('admin_id')->nullable();
 
             $table->foreignId('status_id');
 

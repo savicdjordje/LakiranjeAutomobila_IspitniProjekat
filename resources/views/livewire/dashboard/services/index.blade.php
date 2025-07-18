@@ -15,12 +15,6 @@
             type="text"
             placeholder="Search {{ __('crud.services.collectionTitle') }}..."
         />
-
-        @can('create', App\Models\Service::class)
-        <a wire:navigate href="{{ route('dashboard.services.create') }}">
-            <x-ui.button>New</x-ui.button>
-        </a>
-        @endcan
     </div>
 
     {{-- Delete Modal --}}

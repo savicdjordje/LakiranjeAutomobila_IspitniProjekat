@@ -61,25 +61,6 @@
                 </div>
 
                 <div class="w-full">
-                    <x-ui.label for="admin_id"
-                        >{{ __('crud.services.inputs.admin_id.label')
-                        }}</x-ui.label
-                    >
-                    <x-ui.input.select
-                        wire:model="form.admin_id"
-                        name="admin_id"
-                        id="admin_id"
-                        class="w-full"
-                    >
-                        <option value="">Select data</option>
-                        @foreach ($admins as $value => $label)
-                        <option value="{{ $value }}">{{ $label }}</option>
-                        @endforeach
-                    </x-ui.input.select>
-                    <x-ui.input.error for="form.admin_id" />
-                </div>
-
-                <div class="w-full">
                     <x-ui.label for="status_id"
                         >{{ __('crud.services.inputs.status_id.label')
                         }}</x-ui.label
